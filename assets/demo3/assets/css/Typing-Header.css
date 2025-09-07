@@ -1,0 +1,42 @@
+#box-0 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FF5F6D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#box-0 .container p {
+  font-family: 'Allura', cursive; 
+  font-size: 500%;
+  padding: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+  color: #ffffff;
+}
+#box-0 .container p span.typed-text {
+  font-weight: normal;
+  background: -webkit-linear-gradient(120deg, #FFFFFF, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color : transparent;
+}
+#box-0 .container p span.cursor {
+  display: inline-block;
+  background-color: #ffffff;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+#box-0 .container p span.cursor.typing {
+  animation: none;
+}
+@keyframes blink {
+  0%  { background-color: #ffffff; }
+  49% { background-color: #ffffff; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #ffffff; }
+}

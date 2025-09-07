@@ -1,0 +1,33 @@
+#req .reqbox{
+  color: #fff;
+  background: #5983e8;
+  background: -webkit-linear-gradient(to right, #00e4d0, #5983e8 );
+  background: linear-gradient(to right, #00e4d0, #5983e8);
+  padding: 10px 0 10px;
+  text-align: center;
+  font-size: 16px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+#box-1 .jumbotron h1{
+	font-family: 'Caveat Brush', cursive;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 4px 20px rgba(0,0,0,.5);
+  margin-bottom: -10%;
+}
+
+#box-3 .jumbotron h1{
+	font-family: 'Caveat Brush', cursive;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 4px 20px rgba(0,0,0,.5);
+}
+
+#box-4 .jumbotron h1{
+	font-family: 'Caveat Brush', cursive;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 4px 20px rgba(0,0,0,.5);
+}
+
+#head-img{
+  width: 50px;
+  height: auto;
+  margin-top: -5px;
+}

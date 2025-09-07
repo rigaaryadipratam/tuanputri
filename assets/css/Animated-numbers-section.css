@@ -1,0 +1,43 @@
+.wrapper-numbers {
+  color: #fff;
+  margin-top: 100px;  
+  padding: 20px 0 5px;
+  text-align: center;
+  font-size: 16px;
+  overflow: hidden;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 4px 20px rgba(0,0,0,.5);
+  border-radius: 50px;
+  background: #5983e8;
+  background: -webkit-linear-gradient(to right, #00e4d0, #5983e8 );
+  background: linear-gradient(to right, #00e4d0, #5983e8);
+
+}
+
+.header-numbers {
+  margin-bottom: 10px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 4px 20px rgba(0,0,0,.5);
+}
+
+.wrapper-numbers h1, .wrapper-numbers h2, .wrapper-numbers h3, .wrapper-numbers h4 {
+  margin: 0 0 -10px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 4px 20px rgba(0,0,0,.5);
+}
+
+.count, .countup i {
+  font-size: 50px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 4px 20px rgba(0,0,0,.5);
+  line-height: 1;
+}
+
+.sup {
+  font-size: 20px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.column {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+

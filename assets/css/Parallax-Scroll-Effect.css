@@ -1,0 +1,113 @@
+#box-1 {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/img3.png);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+
+#box-2 {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/img1-min.png);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+
+}
+
+#box-3 {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/img2.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+}
+
+#box-4 {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/i2.jpg);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+} 
+
+@media screen{
+  #box-4{
+    padding-top: 1%;
+  }
+  #box-1{
+    padding-top: 1%;
+  }
+  #box-3{
+    padding-top: 1%;
+  }
+  #box-3 #about-img{
+  padding-top: 10px;
+  width: 250px;
+  height: auto;
+  }
+  #box-1 .row #paket1{
+    width: 18rem;
+  }
+  #box-1 .row #paket2{
+    width: 18rem;
+  }
+  #box-1 .row #paket3{
+    width: 18rem;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  #box-4{
+    padding-top: 9%;
+    background-image: url(../img/i2x.jpg);
+  
+  }
+  #box-1{
+    padding-top: 9%;
+  }
+  #box-3{
+    padding-top: 9%;
+  }
+  #box-3 #about-img{
+  padding-top: 10px;
+  width: 150px;
+  height: auto;
+  }
+  #box-2 {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/img1min-min.png);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+  }
+  #box-3 {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/img2-min.png);
+  background-size: cover;
+  display: table;
+  background-attachment: fixed;
+  }
+}
+
+
+
+
+
+h1 {
+  font-family: arial black;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+

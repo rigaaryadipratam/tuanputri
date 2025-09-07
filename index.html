@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>I Love You So Much Tuan Putri!</title>
+    <meta name="description" content="Ucapan spesial untuk Tuan Putri dengan penuh cinta">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Sriracha&family=Allura&family=Caveat+Brush&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Library (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ff8e8e;
+            --accent-color: #ff4757;
+            --text-color: #2f3542;
+            --light-color: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Sriracha', cursive;
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-color: #fff5f5;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        #hero {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .typed-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 0;
+            font-family: 'Allura', cursive;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: white;
+            margin-left: 0.1rem;
+            animation: blink 1s infinite;
+        }
+
+        .cursor.typing {
+            animation: none;
+        }
+
+        @keyframes blink {
+            0% {
+                background-color: white;
+            }
+
+            49% {
+                background-color: white;
+            }
+
+            50% {
+                background-color: transparent;
+            }
+
+            99% {
+                background-color: transparent;
+            }
+
+            100% {
+                background-color: white;
+            }
+        }
+
+        .heart {
+            color: var(--accent-color);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .section-title {
+            font-family: 'Chelsea Market', cursive;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .message-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .message-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .play-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background-color: var(--accent-color);
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart-shape {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 71, 87, 0.7);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .typed-text {
+                font-size: 2.5rem;
+            }
+
+            .message-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="hearts-container"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section">
+        <div class="container">
+            <div data-aos="fade-down">
+                <p><span class="typed-text" id="typed-text"></span><span class="cursor">&nbsp;</span></p>
+                <h1 class="display-4">Tuan Putri</h1>
+                <p class="lead">Salsabila Tyas Azzahra</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section 1 -->
+    <section id="message1" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="message-box">
+                        <h2 class="section-title">Terima Kasih Sudah Hadir!</h2>
+                        <hr>
+                        <p>Hai tuan putri!</p>
+<p>Terima kasih sudah hadir di hidupku ya!</p>
+
+<p>Terima kasih juga sudah menerima, menyambut, dan mendukungku sedari awal.
+Terima kasih telah menjadi someone like home, yangmemberikan rasa aman, rasa nyaman, dan rasa sayang ke aku ya! walau akhir akhir ini kamu ga mengakuinya, hehe</p>
+
+<p>Tuan putriiiiii....</p>
+<p>I am not perfect! exactly not perfect. 
+i have many problem, aku sempet jauh dari allah.</p>
+
+<p>Tapi, setelah kamu hadir, yang kabur jadi jelas, yang tadinya tanpa arah jadi punya arah.
+satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang yang termotivasi untuk lebih maju lagi!</p>
+
+<p>Terima kasih tuan putri! mungkin 3 bulan singkat bagimu, tapi kata 'I Love You' pun ga cukup untukmu, Kamus dan Tata Bahasa dunia harus mencari kata yang lebih untuk bisa mengekspresikannya.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="assets/demo3/assets/img/website-bella's (1).jpg" alt="Tuan Putri"
+                        class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section 2 -->
+    <section id="message2" class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+                    <div class="message-box">
+                        <h2 class="section-title">Ayo Kita Wujudkan</h2>
+                        <hr>
+                        <p>Tuan Putri!</p>
+
+                        <p>Doa yang selalu aku panjatkan dan aku minta, kamu harus jadi wanita yang paling bahagia, Dengan atau tanpa aku.</p>
+
+<p>Apapun keputusan kamu, aku akan selalu dukung ya!</p>
+
+<p>Tapi kalau kesempatan dan lauhul mahfuz bertuliskan nama kita berdua, mungkin aku jadi orang paling bahagia, dan aku akan menggunakan kesempatannya sebaik mungkin.</p>
+<p>Ayo kita wujudkan hidup bahagia yang punya cafe-cafe estetik dan toko bunga itu!</p>
+<p>Ayo kita wujudkan keliling dunia dan lihat aurora itu!</p>
+<p>Ayo kita wujudkan punya rumah di bandung, ponorogo, dan lombok itu!</p>
+<p>Ayo kita wujudkan bikin sekolah dan tempat belajar buat anak anak di timur Indonesia itu!</p>
+<p>Ayo bareng bareng kita kejar berkah dan ridho allah didunia!</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                    <img src="assets/demo3/assets/img/website-bella's (2).jpg" alt="Tuan Putri"
+                        class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-down">Our Moment's</h2>
+            <p class="text-center mb-5" data-aos="fade-up">momen mahal dan sudut pandang riga lewat sebuah gambar</p>
+
+            <div class="row">
+                <!-- Gallery items will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message -->
+    <section id="final-message" class="section bg-light">
+        <div class="container text-center">
+            <div data-aos="zoom-in">
+                <h2 class="section-title">Untuk, Tuan Putri</h2>
+                <p class="lead">Terima kasih telah menjadi bagian terindah dalam hidupku. Aku tunggu sampai kamu siap ya! Aku juga pasti akan menunggu izin bapak mamak, dan allah yang punya kamu! 
+                    semoga rasa bahagia, dan restu allah ke ali dan fatimah, ada juga di kita.</p>
+                <p class="heart-text">Ini kode keras, kalau habis baca ini kamu siap, call aku ya!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Player -->
+    <div class="play-btn" id="play-btn">
+        <i class="fas fa-play"></i>
+    </div>
+
+    <audio id="myAudio" loop>
+        <source src="assets/song/anugerah_terindah.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="text-muted">Dibuat dengan <span class="heart">❤️</span> oleh Pak Kabem</p>
+            <p>Kamu selalu pemenangnya, Da moram živjeti deset tisuća života, uvijek bih izabrala tebe.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Inisialisasi AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Variabel global
+        let audioPlaying = false;
+        const audio = document.getElementById('myAudio');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = playBtn.querySelector('i');
+
+        // Teks untuk efek mengetik
+        const texts = [
+            "Hai",
+            "Terima Kasih Sudah Hadir Di Hidupku ya!",
+            "Kamu adalah bukti dari maha baik nya allah",
+            "You might not be ready, but I care about you!"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingDelay = 100;
+        let deletingDelay = 50;
+        let pauseDelay = 2000;
+
+
+         // Data untuk galeri foto dengan judul dan caption kustom
+        const galleryData = [
+            {
+                src: "assets/demo3/assets/img/website-bella's (1).jpg",
+                title: "Emang boleh secakep ini?!",
+                caption: "waktu itu kamu marah sama aku, tapi tetep ngirim foto karena mau izin upload, lucu bgt sih! aku dihargai bgt sama kamu"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (2).jpg",
+                title: "Foto di kampus siapa ini?",
+                caption: "akhirnya aku kesampean foto sama kamu disini"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (3).jpg",
+                title: "Squidward.",
+                caption: "Tuan putriiiii, terima kasih udah jadi rumahku setiap hari ya! setiap malam, lihat senyummu, lelahku hilang"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (4).jpg",
+                title: "Tuan Putri sore didepan rumah",
+                caption: "ini kamu baru pulang ke lombok, masih yang selalu vc sama akuuu"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (5).jpg",
+                title: "MOJA is Magic!",
+                caption: "Momen di MOJA bareng kamu, salah satu momen paling membahagiakanku dalam hidup!"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (6).jpg",
+                title: "Tuan Putri pinkk lighting",
+                caption: "Tuan Putriiii, ini allah sombong bgt ya, nyiptain manusia seindah kamu"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (7).jpg",
+                title: "Best Photobox Ever!",
+                caption: "Photobox paling mahal dan terbaik yang aku punya"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (8).jpg",
+                title: "Our Fav Photo's",
+                caption: "Tuan putriiii, beside you, i am home!"
+            },
+            {
+                src: "assets/demo3/assets/img/website-bella's (9).jpg",
+                title: "watching a long-awaited movie",
+                caption: "Ga nyangka bisa nonton disamping tuan putriiii"
+            }
+        ];
+
+        // Fungsi efek mengetik
+        function typeEffect() {
+            const currentText = texts[textIndex];
+            const typedTextElement = document.getElementById('typed-text');
+
+            if (isDeleting) {
+                // Menghapus teks
+                typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingDelay = deletingDelay;
+            } else {
+                // Mengetik teks
+                typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingDelay = 100;
+            }
+
+            // Mengatur transisi antara mengetik dan menghapus
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                typingDelay = pauseDelay;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typingDelay = 500;
+            }
+
+            setTimeout(typeEffect, typingDelay);
+        }
+
+        // Fungsi untuk memutar/menjeda audio
+        function toggleAudio() {
+            if (audioPlaying) {
+                audio.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            } else {
+                audio.play().catch(e => {
+                    console.log("Autoplay prevented: ", e);
+                    // Meminta interaksi pengguna untuk memutar audio
+                    alert("Klik tombol play untuk memutar musik");
+                });
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            }
+            audioPlaying = !audioPlaying;
+        }
+
+        // Fungsi untuk membuat hati yang mengambang
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            const heartCount = 30;
+
+            // for (let i = 0; i < heartCount; i++) {
+            //     const heart = document.createElement('div');
+            //     heart.classList.add('heart-shape');
+            //     heart.innerHTML = '❤️';
+
+            //     // Posisi acak
+            //     heart.style.left = Math.random() * 100 + 'vw';
+            //     heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+
+            //     // Animasi dengan delay acak
+            //     heart.style.animationDelay = Math.random() * 6 + 's';
+            //     heart.style.animationDuration = (Math.random() * 10 + 6) + 's';
+
+            //     heartsContainer.appendChild(heart);
+            // }
+        }
+
+        // Fungsi untuk menghasilkan galeri
+          function generateGallery() {
+            const galleryRow = document.querySelector('#gallery .row');
+            
+            galleryData.forEach((item, index) => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4';
+                col.setAttribute('data-aos', 'fade-up');
+                col.setAttribute('data-aos-delay', (index * 100).toString());
+
+                col.innerHTML = `
+                    <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-index="${index}">
+                        <img src="${item.src}" alt="${item.title}" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>${item.title}</h5>
+                            <p>${item.caption.substring(0, 60)}...</p>
+                        </div>
+                    </div>
+                `;
+
+                galleryRow.appendChild(col);
+            });
+        }
+
+        // Fungsi untuk menghitung hari (contoh: sejak 1 Januari 2020)
+        function calculateDays() {
+            const startDate = new Date(2020, 0, 1); // 1 Januari 2020
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('heart-counter').textContent = diffDays;
+        }
+
+        // Event listener untuk modal galeri
+        $(document).on('click', '.gallery-item', function () {
+            const imgSrc = $(this).data('img');
+            $('#galleryModalImage').attr('src', imgSrc);
+        });
+
+        // Inisialisasi saat dokumen siap
+        $(document).ready(function () {
+            // Memulai efek mengetik
+            typeEffect();
+
+            // Membuat hati yang mengambang
+            createHearts();
+
+            // Menghasilkan galeri
+            generateGallery();
+
+            // Menghitung hari
+            calculateDays();
+
+            // Event listener untuk tombol play
+            playBtn.addEventListener('click', toggleAudio);
+
+            // Memutar otomatis (dengan penanganan error)
+            audio.play().then(() => {
+                audioPlaying = true;
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            }).catch(e => {
+                console.log("Autoplay prevented: ", e);
+                audioPlaying = false;
+            });
+        });
+
+        // Event listener untuk modal galeri
+        $(document).on('click', '.gallery-item', function () {
+            const index = $(this).data('index');
+            const item = galleryData[index];
+            
+            $('#galleryModalImage').attr('src', item.src);
+            $('#galleryModalTitle').text(item.title);
+            $('#galleryModalCaption').text(item.caption);
+        });
+    </script>
+
+    <!-- Modal untuk gambar galeri -->
+    <!-- <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kenangan Indah</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="galleryModalImage" src="" alt="Gallery image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Modal untuk gambar galeri -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="galleryModalTitle">Judul Foto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="galleryModalImage" src="" alt="Gallery image" class="img-fluid">
+                    <div class="modal-caption">
+                        <p id="galleryModalCaption">Caption untuk foto akan muncul di sini</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
