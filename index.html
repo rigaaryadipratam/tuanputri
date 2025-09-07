@@ -185,6 +185,23 @@
             transform: scale(1.1);
             background-color: var(--accent-color);
         }
+        
+        .play-btn.playing {
+            background-color: var(--accent-color);
+        }
+        
+        .audio-permission {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 250px;
+            display: none;
+        }
 
         .floating-hearts {
             position: fixed;
@@ -230,6 +247,12 @@
             .message-box {
                 padding: 20px;
             }
+            
+            .audio-permission {
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
         }
     </style>
 </head>
@@ -237,6 +260,12 @@
 <body>
     <!-- Floating Hearts Background -->
     <div class="floating-hearts" id="hearts-container"></div>
+    
+    <!-- Audio Permission Box -->
+    <div class="audio-permission" id="audio-permission">
+        <p>Klik untuk memutar musik latar</p>
+        <button class="btn btn-sm btn-primary" id="enable-audio">Aktifkan Musik</button>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero" class="section">
@@ -274,7 +303,7 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <img src="assets/demo3/assets/img/website-bella's (1).jpg" alt="Tuan Putri"
+                    <img src="assets/demo3/assets/img/geomat7.jpg" alt="Tuan Putri"
                         class="img-fluid rounded shadow">
                 </div>
             </div>
@@ -304,7 +333,7 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1" data-aos="fade-right">
-                    <img src="assets/demo3/assets/img/website-bella's (2).jpg" alt="Tuan Putri"
+                    <img src="assets/demo3/assets/img/geomat8.jpg" alt="Tuan Putri"
                         class="img-fluid rounded shadow">
                 </div>
             </div>
@@ -340,7 +369,7 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
         <i class="fas fa-play"></i>
     </div>
 
-    <audio id="myAudio" loop>
+    <audio id="myAudio" loop preload="metadata">
         <source src="assets/song/anugerah_terindah.mp3" type="audio/mpeg">
         Browser Anda tidak mendukung elemen audio.
     </audio>
@@ -369,9 +398,12 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
 
         // Variabel global
         let audioPlaying = false;
+        let userInteracted = false;
         const audio = document.getElementById('myAudio');
         const playBtn = document.getElementById('play-btn');
         const playIcon = playBtn.querySelector('i');
+        const audioPermission = document.getElementById('audio-permission');
+        const enableAudioBtn = document.getElementById('enable-audio');
 
         // Teks untuk efek mengetik
         const texts = [
@@ -469,20 +501,51 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
 
         // Fungsi untuk memutar/menjeda audio
         function toggleAudio() {
+            if (!userInteracted) {
+                showAudioPermission();
+                return;
+            }
+            
             if (audioPlaying) {
-                audio.pause();
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
+                pauseAudio();
             } else {
-                audio.play().catch(e => {
-                    console.log("Autoplay prevented: ", e);
-                    // Meminta interaksi pengguna untuk memutar audio
-                    alert("Klik tombol play untuk memutar musik");
-                });
+                playAudio();
+            }
+        }
+        
+        function playAudio() {
+            audio.play().then(() => {
+                audioPlaying = true;
                 playIcon.classList.remove('fa-play');
                 playIcon.classList.add('fa-pause');
-            }
-            audioPlaying = !audioPlaying;
+                playBtn.classList.add('playing');
+            }).catch(e => {
+                console.log("Error playing audio: ", e);
+                showAudioPermission();
+            });
+        }
+        
+        function pauseAudio() {
+            audio.pause();
+            audioPlaying = false;
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            playBtn.classList.remove('playing');
+        }
+        
+        function showAudioPermission() {
+            audioPermission.style.display = 'block';
+        }
+        
+        function hideAudioPermission() {
+            audioPermission.style.display = 'none';
+        }
+        
+        function enableAudio() {
+            userInteracted = true;
+            hideAudioPermission();
+            // Coba memutar audio setelah interaksi pengguna
+            playAudio();
         }
 
         // Fungsi untuk membuat hati yang mengambang
@@ -520,9 +583,9 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
                 col.innerHTML = `
                     <div class="gallery-item" data-toggle="modal" data-target="#galleryModal" data-index="${index}">
                         <img src="${item.src}" alt="${item.title}" class="img-fluid">
-                        <div class="gallery-caption">
+                        <div class="gallery-caption p-3">
                             <h5>${item.title}</h5>
-                            <p>${item.caption.substring(0, 60)}...</p>
+                            <p class="mb-0">${item.caption.substring(0, 60)}...</p>
                         </div>
                     </div>
                 `;
@@ -531,19 +594,14 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
             });
         }
 
-        // Fungsi untuk menghitung hari (contoh: sejak 1 Januari 2020)
-        function calculateDays() {
-            const startDate = new Date(2020, 0, 1); // 1 Januari 2020
-            const today = new Date();
-            const diffTime = Math.abs(today - startDate);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            document.getElementById('heart-counter').textContent = diffDays;
-        }
-
         // Event listener untuk modal galeri
         $(document).on('click', '.gallery-item', function () {
-            const imgSrc = $(this).data('img');
-            $('#galleryModalImage').attr('src', imgSrc);
+            const index = $(this).data('index');
+            const item = galleryData[index];
+            
+            $('#galleryModalImage').attr('src', item.src);
+            $('#galleryModalTitle').text(item.title);
+            $('#galleryModalCaption').text(item.caption);
         });
 
         // Inisialisasi saat dokumen siap
@@ -557,50 +615,34 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
             // Menghasilkan galeri
             generateGallery();
 
-            // Menghitung hari
-            calculateDays();
-
             // Event listener untuk tombol play
             playBtn.addEventListener('click', toggleAudio);
-
-            // Memutar otomatis (dengan penanganan error)
-            audio.play().then(() => {
-                audioPlaying = true;
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-            }).catch(e => {
-                console.log("Autoplay prevented: ", e);
-                audioPlaying = false;
+            
+            // Event listener untuk mengaktifkan audio
+            enableAudioBtn.addEventListener('click', enableAudio);
+            
+            // Event listener untuk interaksi pengguna (klik di mana saja di halaman)
+            document.body.addEventListener('click', function() {
+                if (!userInteracted) {
+                    userInteracted = true;
+                    hideAudioPermission();
+                }
+            });
+            
+            // Tampilkan notifikasi audio setelah beberapa detik
+            setTimeout(() => {
+                if (!userInteracted) {
+                    showAudioPermission();
+                }
+            }, 3000);
+            
+            // Event listener untuk error audio
+            audio.addEventListener('error', function(e) {
+                console.error('Error loading audio:', e);
+                alert('Maaf, terjadi masalah memuat file audio. Pastikan file ada di lokasi yang benar.');
             });
         });
-
-        // Event listener untuk modal galeri
-        $(document).on('click', '.gallery-item', function () {
-            const index = $(this).data('index');
-            const item = galleryData[index];
-            
-            $('#galleryModalImage').attr('src', item.src);
-            $('#galleryModalTitle').text(item.title);
-            $('#galleryModalCaption').text(item.caption);
-        });
     </script>
-
-    <!-- Modal untuk gambar galeri -->
-    <!-- <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Kenangan Indah</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <img id="galleryModalImage" src="" alt="Gallery image" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <!-- Modal untuk gambar galeri -->
     <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
@@ -613,9 +655,9 @@ satu hal yang terpenting adalah, setelah kenal kamu lebih jauh, aku adalah orang
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img id="galleryModalImage" src="" alt="Gallery image" class="img-fluid">
-                    <div class="modal-caption">
-                        <p id="galleryModalCaption">Caption untuk foto akan muncul di sini</p>
+                    <img id="galleryModalImage" src="" alt="Gallery image" class="img-fluid rounded">
+                    <div class="mt-3">
+                        <p id="galleryModalCaption" class="mb-0">Caption untuk foto akan muncul di sini</p>
                     </div>
                 </div>
             </div>
